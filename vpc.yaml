@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Parameters:
+  cidr:
+    Type: String
+    Default: '10.0.0.0/16'
+Resources:
+  vpc:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: !Ref cidr
+      EnableDnsSupport: 'false'
+      EnableDnsHostnames: 'false'
+      InstanceTenancy: dedicated
+      Tags:
+        - Key: Name
+          Value: vpc-wordpress
+
